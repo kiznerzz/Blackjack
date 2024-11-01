@@ -1,8 +1,8 @@
-# Blackjack Game
+# Blackjack
 
 ---
 
-Welcome to the Blackjack Game! This is a simple console-based implementation of the classic card game, Blackjack, using Python. Players can place bets, draw cards, and play against a dealer with dynamic hand evaluation and game outcomes.
+Welcome to the Blackjack! This is a simple console-based implementation of the classic card game, Blackjack, using Python. Players can place bets, draw cards, and play against a dealer with dynamic hand evaluation and game outcomes.
 
 ## Features
 
@@ -22,8 +22,8 @@ Welcome to the Blackjack Game! This is a simple console-based implementation of 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/blackjack-game.git
-   cd blackjack-game
+   git clone https://github.com/kiznerzz/Blackjack.git
+   cd Blackjack
 
 2. Install the required libraries:
    ```bash
@@ -33,5 +33,5 @@ Welcome to the Blackjack Game! This is a simple console-based implementation of 
 To run the game, execute the following command in your terminal:
 
    ```bash
-   python blackjack.py
+   python blackjack-pretty.py
 Follow the on-screen prompts to place your bets and make your decisions. You can choose to play multiple rounds until you run out of chips or decide to exit the game.
