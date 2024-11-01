@@ -1,6 +1,5 @@
 # Blackjack
 
----
 
 Welcome to Blackjack! This is a simple console-based implementation of the classic card game, Blackjack, using Python. Players can place bets, draw cards, and play against a dealer with dynamic hand evaluation and game outcomes.
 
