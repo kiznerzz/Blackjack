@@ -16,6 +16,7 @@ def gen_card():
     global deck
     if len(deck) == 0:
         print("The deck is empty. Reshuffling deck...")
+        time.sleep(1)
         deck = [
             'ACE', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'JACK', 'QUEEN', 'KING',
         ] * 4
@@ -27,7 +28,7 @@ def gen_card():
 def place_bet(chips):
     """Allow player to place a bet within available chip count."""
     while True:
-        bet = input("How many chips would you like to bet? (A for All-in) ")
+        bet = input("How many chips would you like to bet? (A for All-in)")
         if bet.upper() == 'A':
             print(f"\nBET: {chips} Chips")
             time.sleep(1)
@@ -69,6 +70,7 @@ def check_21(player_hand, round):
 
     return player_blackjack
 
+
 def play(player_hand, dealer_hand, round, chips):
     global bet
     """Handle the player's turn and game choices."""
@@ -81,11 +83,11 @@ def play(player_hand, dealer_hand, round, chips):
     print(f"\nYour hand: {', '.join(player_hand)} (total: {total}{soft})")
     print(f"Dealer's hand: [?], {dealer_hand[1]}\n")
 
-    # Provide choices: hit, stand, or split if first round and cards are the same
+    # Provide choices: hit, stand, or split and or double down
     print("\nWould you like to:\n• HIT (h)\n• STAND (s)")
     if player_hand[0] == player_hand[1] and round == 1:  # SPLIT only available in round 1 and if hand cards match
         print("• SPLIT (sp)")
-    if bet <= chips / 2:
+    if bet <= chips / 2:  # Only allow double down if player betted less than half their chips
         print("• DOUBLE DOWN (d)")
 
     while True:
@@ -170,12 +172,12 @@ def calculate_hand(hand):
     total = sum(cards[card] for card in hand)  # Sum the values of the cards in hand
     ace_count = hand.count('ACE')
 
-    while total > 21 and ace_count > 0:
+    while total > 21 and ace_count > 0: # Convert as much aces as needed to 1 to keep total < 21
         total -= 10
         ace_count -= 1
-
+    # If player has an ace, total not over 21 and there are still aces to convert, count as soft
     soft = ' soft' if 'ACE' in hand and total <= 21 and ace_count else ''
-    return total, soft  # No ACE or ACE as 1, return just total
+    return total, soft
 
 bet = 0
 def main():
@@ -223,8 +225,7 @@ def main():
                 break
 
         # Check if player wants to continue after each round
-        replay = input("Would you like to play again? (Y/n) ").lower()
-
+        replay = input("Would you like to play again? (Y/n)").lower()
         if replay == 'n':
             break  # Exit the game
 
