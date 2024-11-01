@@ -185,8 +185,9 @@ def calculate_hand(hand):
         total -= 10
         ace_count -= 1
 
+    # If player has an ace, total not over 21 and there are still aces to convert, count as soft
     soft = ' soft' if 'ACE' in hand and total <= 21 and ace_count else ''
-    return total, soft  # No ACE or ACE as 1, return just total
+    return total, soft
 
 bet = 0
 def main():
